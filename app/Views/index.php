@@ -457,8 +457,7 @@
         <div class="heroe">
             <h1>Invoice Generator</h1>
             <h2 class="subheading">Generate professional invoices for free with our online free invoice generator. Create, customize, and download invoices instantly.</h2>
-
-            <form class="shadow-sm" action="generate-invoice" method="$_POST">
+            <form class="shadow-sm" action="generate-invoice" method="POST" enctype="multipart/form-data">
                 <div class="form-header">
                     <div class="title">INVOICE</div>
                     <div class="color-group">

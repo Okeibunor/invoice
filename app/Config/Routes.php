@@ -6,4 +6,4 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get('/generate-invoice', 'Home::generateInvoice');
+$routes->post('/generate-invoice', 'Home::generateInvoice');
