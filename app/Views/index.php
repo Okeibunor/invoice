@@ -14,14 +14,14 @@
     <meta property="og:url" content="https://invoice.temmy.net">
     <meta property="og:title" content="Free Invoice Generator - Temmy">
     <meta property="og:description" content="Generate professional invoices for free with our online invoice generator. Create, customize, and download invoices instantly.">
-    <meta property="og:image" content="https://invoice.temmy.net/images/og-image.jpg">
+    <meta property="og:image" content="/images/logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://invoice.temmy.net">
     <meta property="twitter:title" content="Free Invoice Generator - Temmy">
     <meta property="twitter:description" content="Generate professional invoices for free with our online invoice generator. Create, customize, and download invoices instantly.">
-    <meta property="twitter:image" content="https://invoice.temmy.net/images/twitter-image.jpg">
+    <meta property="twitter:image" content="/images/logo.png">
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -802,13 +802,13 @@
         <div class="menu">
             <ul>
                 <li class="logo">
-                    <a href="https://temmy.net" target="_blank">Invoive Generator</a>
+                    <a href="https://invoice.temmy.net" target="_blank">Invoive Generator</a>
                 </li>
                 <li class="menu-toggle">
                     <button onclick="toggleMenu();">&#9776;</button>
                 </li>
                 <li class="menu-item hidden"><a href="#">Home</a></li>
-                <li class="menu-item hidden"><a href="https://temmy.net" target="_blank">Vist Temmy</a>
+                <li class="menu-item hidden"><a href="https://temmy.net" target="_blank">Vist Temmy Network</a>
                 </li>
             </ul>
         </div>
