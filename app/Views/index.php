@@ -24,9 +24,8 @@
     <meta property="twitter:image" content="/images/logo.png">
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico">
     <!-- STYLES -->
-
     <style {csp-style-nonce}>
         * {
             transition: background-color 300ms ease, color 300ms ease;
