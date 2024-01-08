@@ -1066,20 +1066,20 @@
                     <div class="item-form-group">
                         <div class="form-group main-group">
                             <label for="item-name">Item description</label>
-                            <input type="text" id="item-name" name="item-name" required>
+                            <input type="text" id="item-name" name="item-name[]" required>
                         </div>
                         <div class="form-group">
                             <label for="item-unit-cost">Unit Cost</label>
-                            <input type="number" id="item-unit-cost" name="item-unit-cost" required>
+                            <input type="number" id="item-unit-cost" name="item-unit-cost[]" required>
                         </div>
                         <div class="form-group">
                             <label for="item-quantity"> Quantity</label>
-                            <input type="number" id="item-quantity" name="item-quantity" required>
+                            <input type="number" id="item-quantity" name="item-quantity[]" required>
                         </div>
 
                         <div class="form-group">
                             <label style="text-wrap: nowrap;" for="item-price">Amount</label>
-                            <input type="number" id="item-price" name="item-price" required>
+                            <input type="number" id="item-price" name="item-price[]" required>
                         </div>
 
                         <div class="form-group center">

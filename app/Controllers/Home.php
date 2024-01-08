@@ -26,22 +26,22 @@ class Home extends BaseController
     {
         try {
             // Sanitize form data
-            $themeColor = filter_input(INPUT_POST, 'theme-color', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $currency = filter_input(INPUT_POST, 'currency', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $orderNumber = filter_input(INPUT_POST, 'order-number', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $orderDate = filter_input(INPUT_POST, 'order-date', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $dueDate = filter_input(INPUT_POST, 'delivery-date', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $companyName = filter_input(INPUT_POST, 'company-name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $companyAddress = filter_input(INPUT_POST, 'company-location', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $customerName = filter_input(INPUT_POST, 'customer-name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $customerAddress = filter_input(INPUT_POST, 'customer-location', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $itemDescription = filter_input(INPUT_POST, 'item-name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $unitCost = filter_input(INPUT_POST, 'item-unit-cost', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-            $quantity = filter_input(INPUT_POST, 'item-quantity', FILTER_SANITIZE_NUMBER_INT);
-            $amount = filter_input(INPUT_POST, 'item-price', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-            $notes = filter_input(INPUT_POST, 'notes', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $paymentInfo = filter_input(INPUT_POST, 'payment-info', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $terms = filter_input(INPUT_POST, 'terms', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $themeColor = $_POST['theme-color'];
+            $currency = $_POST['currency'];
+            $orderNumber = $_POST['order-number'];
+            $orderDate = $_POST['order-date'];
+            $dueDate = $_POST['delivery-date'];
+            $companyName = $_POST['company-name'];
+            $companyAddress = $_POST['company-location'];
+            $customerName = $_POST['customer-name'];
+            $customerAddress = $_POST['customer-location'];
+            $itemNames = $_POST['item-name'];
+            $itemUnitCosts = $_POST['item-unit-cost'];
+            $itemQuantities = $_POST['item-quantity'];
+            $itemAmounts = $_POST['item-price'];
+            $notes = $_POST['notes'];
+            $paymentInfo = $_POST['payment-info'];
+            $terms = $_POST['terms'];
 
 
             Configuration::instance([
@@ -55,7 +55,9 @@ class Home extends BaseController
                 ]
             ]);
 
-            $logo = (new UploadApi())->upload($_FILES['company-image']['tmp_name']);
+            $logo = (new UploadApi())->upload($_FILES['company-image']['tmp_name'], [
+                'folder' => 'invoice-generator',
+            ]);
 
             $companyLogo = $logo['secure_url'];
 
@@ -70,13 +72,28 @@ class Home extends BaseController
             $invoice->setFrom([$companyName, $companyAddress]);
             $invoice->setTo([$customerName, $customerAddress]);
 
+            // Initialize total amount
+            $totalAmount = 0;
+
             /* Adding Items in table */
-            $invoice->addItem($itemDescription, '', $quantity, 0, $unitCost, 0, $amount);
+            // Loop through each item and add it to the invoice
+            for ($i = 0; $i < count($itemNames); $i++) {
+                $itemName = $itemNames[$i];
+                $itemQuantity = $itemQuantities[$i];
+                $itemUnitCost = $itemUnitCosts[$i];
+                $itemAmount = $itemAmounts[$i];
+
+                // Add each item to the invoice
+                $invoice->addItem($itemName, '', $itemQuantity, 0, $itemUnitCost, 0, $itemAmount);
+
+                // Accumulate the total amount
+                $totalAmount += $itemAmount;
+            }
 
             /* Set totals alignment */
             $invoice->setTotalsAlignment('horizontal');
             /* Add totals */
-            $invoice->addTotal('Total', $amount);
+            $invoice->addTotal('Total', $totalAmount);
             // Add other totals as needed
 
             /* Add title */
@@ -95,6 +112,8 @@ class Home extends BaseController
             $invoice->setFooternote('Powered by temmy.net');
             /* Render */
             $invoice->render('Invoice.pdf', 'D');
+
+            return redirect(current_url(), 'Invoice generated successfully');
         } catch (\Exception $ex) {
             return $ex->getMessage();
         }
