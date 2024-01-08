@@ -269,6 +269,29 @@
             background-color: #d32f2f;
         }
 
+        /* Date input specific style */
+        input[type="date"] {
+            appearance: none;
+            /* Remove default arrow in Safari */
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            width: 90%;
+        }
+
+        /* Select specific style */
+        select {
+            appearance: none;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            width: 90%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><polygon points="6 0 12 6 0 6"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 8px;
+        }
+
         /* Safari and iOS specific adjustments */
         /* Safari specific styles */
         @media screen and (-webkit-min-device-pixel-ratio: 0) {
