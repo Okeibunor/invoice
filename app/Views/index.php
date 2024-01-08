@@ -226,6 +226,7 @@
             margin-bottom: 5px;
         }
 
+        /* General input styles */
         input[type="text"],
         input[type="number"],
         input[type="date"],
@@ -234,14 +235,18 @@
         textarea {
             padding: 15px;
             border-radius: 10px;
-            border: .5px solid #ccc;
-            width: 90%
+            border: 1px solid #ccc;
+            width: 90%;
+            box-sizing: border-box;
+            /* Ensure padding and border don't add to the width */
         }
 
+        /* File input specific style */
         input[type='file'] {
             height: 100px;
         }
 
+        /* Color input specific style */
         input[type="color"] {
             height: 40px;
             width: 40px;
@@ -249,6 +254,7 @@
             cursor: pointer;
         }
 
+        /* Button styles */
         button[type="submit"] {
             background-color: #f44336;
             color: #fff;
@@ -261,6 +267,40 @@
 
         button[type="submit"]:hover {
             background-color: #d32f2f;
+        }
+
+        /* Safari and iOS specific adjustments */
+        /* Safari specific styles */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            input[type="date"] {
+                appearance: none;
+                /* Remove default arrow in Safari */
+                padding: 14px;
+                /* Adjust padding for consistency */
+            }
+
+            /* Additional Safari styles if needed */
+        }
+
+        /* iOS specific styles */
+        @media screen and (max-device-width: 767px) {
+
+            /* Adjustments for smaller screens */
+            input,
+            select,
+            textarea {
+                font-size: 16px;
+                /* Adjust font size for better readability on smaller screens */
+            }
+
+            button[type="submit"] {
+                width: 100%;
+                /* Make the button full width on smaller screens */
+                margin: 20px 0;
+                /* Adjust margin for better spacing */
+            }
+
+            /* Additional iOS styles if needed */
         }
 
 
