@@ -8,6 +8,7 @@
     <meta name="description" content="Generate professional invoices for free with our online invoice generator. Create, customize, and download invoices instantly.">
     <meta name="keywords" content="free invoice generator, online invoice tool, create invoices online, invoice template, customizable invoices, download invoices">
     <meta name="author" content="Temmy">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -23,8 +24,6 @@
     <meta property="twitter:description" content="Generate professional invoices for free with our online invoice generator. Create, customize, and download invoices instantly.">
     <meta property="twitter:image" content="/images/logo.png">
 
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico">
     <!-- STYLES -->
     <style {csp-style-nonce}>
         * {
