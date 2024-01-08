@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Free Invoice Generator - Create Invoices Online</title>
+    <title>Free Invoice Generator | Create Free PDF Invoice [2024]</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Generate professional invoices for free with our online invoice generator. Create, customize, and download invoices instantly.">
+    <meta name="description" content="Generate professional invoices in pdf for free with our online invoice generator. Create, customize, and download invoices instantly.">
     <meta name="keywords" content="free invoice generator, online invoice tool, create invoices online, invoice template, customizable invoices, download invoices">
     <meta name="author" content="Temmy">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
