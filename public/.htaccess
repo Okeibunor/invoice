@@ -44,12 +44,6 @@ Options -Indexes
 	ErrorDocument 404 index.php
 </IfModule>
 
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{HTTP_HOST} ^freeinvoicemaker\.app$ [NC]
-    RewriteRule ^(.*)$ https://invoice.temmy.net/$1 [L,R=301]
-</IfModule>
-
 # Disable server signature start
 	ServerSignature Off
 # Disable server signature end
