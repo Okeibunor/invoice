@@ -36,6 +36,7 @@ class Home extends BaseController
             $customerName = $_POST['customer-name'];
             $customerAddress = $_POST['customer-location'];
             $itemNames = $_POST['item-name'];
+            $itemCurrency = $_POST['currency'];
             $itemUnitCosts = $_POST['item-unit-cost'];
             $itemQuantities = $_POST['item-quantity'];
             $itemAmounts = $_POST['item-price'];
@@ -61,7 +62,7 @@ class Home extends BaseController
 
             $companyLogo = $logo['secure_url'];
 
-            $invoice = new InvoicePrinter();
+            $invoice = new InvoicePrinter('A4', $currency, 'en');
             /* Header Settings */
             $invoice->setLogo($companyLogo);
             $invoice->setColor($themeColor);
