@@ -110,7 +110,7 @@ class Home extends BaseController
             $invoice->addParagraph($terms);
 
             /* Set footer note */
-            $invoice->setFooternote('Powered by temmy.net');
+            $invoice->setFooternote('Powered by Alpha Technologies');
             /* Render */
             $invoice->render('Invoice.pdf', 'D');
 
